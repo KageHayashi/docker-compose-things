@@ -3,7 +3,7 @@ services:
     image: linuxserver/heimdall
     container_name: heimdall
     volumes:
-      - /home/user/appdata/heimdall:/config
+      - /home/kage/heimdall/config:/config
     environment:
       - PUID=1000
       - PGID=1000
