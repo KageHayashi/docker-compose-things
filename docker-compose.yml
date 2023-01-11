@@ -1,0 +1,27 @@
+version: "2.1"
+services:
+  heimdall:
+    image: linuxserver/heimdall
+    container_name: heimdall
+    volumes:
+      - /home/user/appdata/heimdall:/config
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Los_Angeles
+    ports:
+      - 80:80
+      - 443:443
+    restart: unless-stopped
+  uptime-kuma:
+      image: louislam/uptime-kuma:1
+      container_name: uptime-kuma
+      volumes:
+        - /home/kage/uptime-kuma/data:/app/data
+      environment:
+        - PUID=1000
+        - PGID=1000
+        - TZ=America/Los_Angeles
+      ports:
+        - 3001:3001
+      restart: unless-stopped
